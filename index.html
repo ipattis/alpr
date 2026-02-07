@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALPR &mdash; AI Learning Process Record</title>
+  <meta name="description" content="An open, portable schema for capturing how students learn with AI. Move beyond grades and essays to verifiable process evidence for admissions.">
+  <meta name="theme-color" content="#6366f1">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ALPR &mdash; AI Learning Process Record">
+  <meta property="og:description" content="An open schema for capturing how students learn with AI. Verifiable process evidence for admissions.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav">
+  <div class="container">
+    <a href="#" class="nav__logo">
+      <span class="nav__logo-icon">A</span>
+      ALPR
+    </a>
+    <ul class="nav__links">
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#dimensions">Dimensions</a></li>
+      <li><a href="#use-cases">Use Cases</a></li>
+      <li><a href="#demo">Demo</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://github.com/isaacpattis/alpr" class="nav__cta">GitHub</a></li>
+    </ul>
+    <button class="nav__mobile-toggle" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        Open Specification &middot; Draft v0.1
+      </div>
+      <h1 class="hero__title">
+        Show <span>How</span> You Learn,<br>Not Just What You Know
+      </h1>
+      <p class="hero__subtitle">
+        The AI Learning Process Record is an open, portable schema that captures the <strong>process</strong> of AI-assisted learning&mdash;giving students, educators, and admissions evaluators a verified window into how learners think, struggle, iterate, and grow.
+      </p>
+      <div class="hero__actions">
+        <a href="#use-cases" class="btn btn--primary">Explore Use Cases</a>
+        <a href="#how-it-works" class="btn btn--secondary">How It Works &darr;</a>
+        <a href="https://github.com/isaacpattis/alpr" class="btn btn--outline">Read the Spec</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <!-- Filled by the radar chart canvas in the demo section -->
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROBLEM ========== -->
+<section id="problem">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">The Problem</span>
+      <h2>Admissions Is Broken in the AI Era</h2>
+      <p>Traditional evaluation materials were designed for a world without AI. That world no longer exists.</p>
+    </div>
+
+    <div class="problem__grid reveal">
+      <div class="problem__card">
+        <div class="problem__card-icon problem__card-icon--red">&#9888;</div>
+        <h4>Authenticity Crisis</h4>
+        <p>AI can generate polished essays, solve problem sets, and write code. Evaluators can no longer distinguish genuine student work from AI-generated output.</p>
+      </div>
+      <div class="problem__card">
+        <div class="problem__card-icon problem__card-icon--amber">&#128200;</div>
+        <h4>Outcome-Only Evaluation</h4>
+        <p>Grades, transcripts, and test scores capture <em>what</em> a student produced but reveal nothing about <em>how</em> they learned, reasoned, or persisted through challenges.</p>
+      </div>
+      <div class="problem__card">
+        <div class="problem__card-icon problem__card-icon--blue">&#128274;</div>
+        <h4>No Shared Standard</h4>
+        <p>Every AI platform generates learning data in its own format. There is no interoperable, portable way to share verified process evidence across institutions.</p>
+      </div>
+    </div>
+
+    <div class="problem__contrast reveal">
+      <div class="problem__old">
+        <h4>What Admissions Sees Today</h4>
+        <ul>
+          <li>A polished essay (who actually wrote it?)</li>
+          <li>A 4.0 GPA (but was it rote memorization?)</li>
+          <li>Test scores (one-day snapshot)</li>
+          <li>Letters of recommendation (subjective)</li>
+          <li>Extracurriculars (curated for application)</li>
+        </ul>
+      </div>
+      <div class="problem__arrow">&rarr;</div>
+      <div class="problem__new">
+        <h4>What ALPR Makes Possible</h4>
+        <ul>
+          <li>Verified record of iterative thinking process</li>
+          <li>Evidence of intellectual independence with AI</li>
+          <li>Longitudinal growth trajectories across domains</li>
+          <li>Student-authored reflections on learning moments</li>
+          <li>Anti-gaming signals rooted in behavioral patterns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">Architecture</span>
+      <h2>Three Layers, One Portable Record</h2>
+      <p>ALPR builds on established learning data standards to create a trust chain from raw interactions to verifiable credentials.</p>
+    </div>
+
+    <div class="how__layers reveal">
+      <div class="how__layer how__layer--1">
+        <div class="how__layer-number">1</div>
+        <h3>Interaction Events</h3>
+        <p>Raw learning interactions captured as xAPI statements from AI platforms. Students never share this layer directly&mdash;it feeds the aggregation pipeline.</p>
+        <div class="how__layer-tags">
+          <span class="how__layer-tag">xAPI 1.0.3</span>
+          <span class="how__layer-tag">prompted</span>
+          <span class="how__layer-tag">self-corrected</span>
+          <span class="how__layer-tag">synthesised</span>
+          <span class="how__layer-tag">reflected</span>
+        </div>
+      </div>
+      <div class="how__layer how__layer--2">
+        <div class="how__layer-number">2</div>
+        <h3>Process Evidence Records</h3>
+        <p>The core innovation: derived summaries capturing learning behaviors that are meaningful to evaluators. Behavioral signals, not conversation transcripts.</p>
+        <div class="how__layer-tags">
+          <span class="how__layer-tag">6 Dimensions</span>
+          <span class="how__layer-tag">Learning Episodes</span>
+          <span class="how__layer-tag">Growth Trajectories</span>
+          <span class="how__layer-tag">Anti-gaming</span>
+        </div>
+      </div>
+      <div class="how__layer how__layer--3">
+        <div class="how__layer-number">3</div>
+        <h3>Verifiable Credentials</h3>
+        <p>Signed, portable, admissions-ready package using W3C Verifiable Credentials, CLR 2.0, and Open Badges 3.0. Cryptographic proofs ensure authenticity.</p>
+        <div class="how__layer-tags">
+          <span class="how__layer-tag">CLR 2.0</span>
+          <span class="how__layer-tag">Open Badges 3.0</span>
+          <span class="how__layer-tag">W3C VC 2.0</span>
+          <span class="how__layer-tag">DID</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6 DIMENSIONS ========== -->
+<section id="dimensions">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">Process Dimensions</span>
+      <h2>Six Dimensions of How Students Learn</h2>
+      <p>ALPR captures behavioral patterns across six research-backed dimensions that reveal how a student engages with AI-assisted learning.</p>
+    </div>
+
+    <div class="dimensions__grid reveal">
+      <div class="dimension__card">
+        <div class="dimension__icon">&#129504;</div>
+        <h4>Intellectual Autonomy</h4>
+        <p>Does the student think independently or outsource cognition to AI?</p>
+        <div class="dimension__metrics">
+          <span class="dimension__metric">Prompt specificity trend</span>
+          <span class="dimension__metric">AI output acceptance rate</span>
+          <span class="dimension__metric">Challenge frequency per session</span>
+          <span class="dimension__metric">Independent reasoning episodes</span>
+        </div>
+      </div>
+
+      <div class="dimension__card">
+        <div class="dimension__icon">&#128301;</div>
+        <h4>Metacognitive Awareness</h4>
+        <p>Does the student reflect on their own thinking and learning strategies?</p>
+        <div class="dimension__metrics">
+          <span class="dimension__metric">Self-assessment accuracy</span>
+          <span class="dimension__metric">Strategy switching count</span>
+          <span class="dimension__metric">Reflection depth</span>
+          <span class="dimension__metric">Help-seeking appropriateness</span>
+        </div>
+      </div>
+
+      <div class="dimension__card">
+        <div class="dimension__icon">&#9968;</div>
+        <h4>Productive Struggle</h4>
+        <p>Does the student persist through difficulty or abandon ship at the first obstacle?</p>
+        <div class="dimension__metrics">
+          <span class="dimension__metric">Attempts before help-seeking</span>
+          <span class="dimension__metric">Time in struggle zone (%)</span>
+          <span class="dimension__metric">Abandonment rate</span>
+          <span class="dimension__metric">Scaffolding preferences</span>
+        </div>
+      </div>
+
+      <div class="dimension__card">
+        <div class="dimension__icon">&#128260;</div>
+        <h4>Iterative Refinement</h4>
+        <p>Does the student revise and improve work or accept first drafts?</p>
+        <div class="dimension__metrics">
+          <span class="dimension__metric">Average revision cycles</span>
+          <span class="dimension__metric">Revision depth distribution</span>
+          <span class="dimension__metric">Self-initiated revision rate</span>
+          <span class="dimension__metric">Surface vs. structural edits</span>
+        </div>
+      </div>
+
+      <div class="dimension__card">
+        <div class="dimension__icon">&#128279;</div>
+        <h4>Knowledge Transfer</h4>
+        <p>Does the student apply concepts across different contexts and domains?</p>
+        <div class="dimension__metrics">
+          <span class="dimension__metric">Cross-domain application count</span>
+          <span class="dimension__metric">Decreasing scaffolding rate</span>
+          <span class="dimension__metric">Analogical reasoning instances</span>
+          <span class="dimension__metric">Concept reuse patterns</span>
+        </div>
+      </div>
+
+      <div class="dimension__card">
+        <div class="dimension__icon">&#129302;</div>
+        <h4>AI Literacy</h4>
+        <p>How effectively and critically does the student use AI as a learning tool?</p>
+        <div class="dimension__metrics">
+          <span class="dimension__metric">Prompt engineering sophistication</span>
+          <span class="dimension__metric">Output verification rate</span>
+          <span class="dimension__metric">Appropriate tool selection</span>
+          <span class="dimension__metric">Limitation awareness score</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== USE CASES ========== -->
+<section id="use-cases">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">Use Cases</span>
+      <h2>Built for Every Stakeholder</h2>
+      <p>ALPR serves everyone in the learning ecosystem&mdash;from the students who own their records to the institutions that evaluate them.</p>
+    </div>
+
+    <div class="usecases__tabs reveal">
+      <button class="usecases__tab active" data-tab="uc-students">Students</button>
+      <button class="usecases__tab" data-tab="uc-families">Families</button>
+      <button class="usecases__tab" data-tab="uc-educators">Educators</button>
+      <button class="usecases__tab" data-tab="uc-admissions">Admissions</button>
+      <button class="usecases__tab" data-tab="uc-platforms">AI Platforms</button>
+      <button class="usecases__tab" data-tab="uc-policymakers">Policymakers</button>
+    </div>
+
+    <!-- ===== STUDENTS ===== -->
+    <div id="uc-students" class="usecases__panel active">
+      <div class="usecase__hero">
+        <div class="usecase__intro">
+          <h3>For Students</h3>
+          <p>Your learning journey is more than a GPA. ALPR gives you a verified, portable record of how you think, learn, and grow with AI&mdash;curated and owned by you.</p>
+          <div class="usecase__highlight-box">
+            <h4>The Student Promise</h4>
+            <p>You choose which learning episodes to share. You write the reflections. You own the narrative. ALPR doesn't surveil&mdash;it empowers you to prove what grades can't show.</p>
+          </div>
+        </div>
+        <div class="usecase__scenarios">
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127891;</span>
+              <h4>College Applications</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Maya, 17 &mdash; Applying to engineering programs</div>
+              <div class="scenario__persona-desc">Used Claude for physics problem-solving and Khan Academy for calculus over 18 months</div>
+            </div>
+            <p>Maya's ALPR shows evaluators that she doesn't just get the right answer&mdash;she challenges AI explanations, iterates on her approach, and transfers physics intuition to novel problems.</p>
+            <ol class="scenario__steps">
+              <li>Reviews her learning sessions and selects 5 breakthrough episodes</li>
+              <li>Writes reflections on her "productive failure" debugging a bridge simulation</li>
+              <li>Shares her growth trajectory showing steadily increasing intellectual autonomy</li>
+              <li>Exports a signed credential to attach alongside her Common App</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128187;</span>
+              <h4>Scholarship Portfolios</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Jamal, 16 &mdash; First-generation college student</div>
+              <div class="scenario__persona-desc">Self-taught programming using Copilot, YouTube, and ChatGPT</div>
+            </div>
+            <p>Without AP classes or expensive tutors, Jamal's transcript understates his abilities. His ALPR demonstrates sophisticated debugging instincts, deep iterative refinement, and growing AI literacy that rivals formal CS education.</p>
+            <ol class="scenario__steps">
+              <li>Curates episodes showing his progression from basic prompts to architectural reasoning</li>
+              <li>Highlights cross-domain transfer: applying data structures to a community service app</li>
+              <li>Includes his reflection on why he prefers hints over full solutions</li>
+              <li>Attaches ALPR to scholarship applications where transcripts tell an incomplete story</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127757;</span>
+              <h4>International Students</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Yuki, 18 &mdash; Applying from Tokyo to U.S. universities</div>
+              <div class="scenario__persona-desc">Uses Duolingo, Claude, and Elicit for English language learning and research</div>
+            </div>
+            <p>Yuki's ALPR provides standardized, verifiable process data that transcends grading system differences and lets evaluators see her critical thinking in action.</p>
+            <ol class="scenario__steps">
+              <li>Shows steady CEFR-aligned growth trajectory from B1 to C1 across platforms</li>
+              <li>Curates an episode where she challenged a cultural assumption in an AI-generated essay</li>
+              <li>Demonstrates research methodology refinement using Elicit for her Extended Essay</li>
+              <li>Shares selective credentials with each university, tailored to program focus</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128640;</span>
+              <h4>Graduate School & Career Transitions</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Priya, 24 &mdash; Applying to data science master's programs</div>
+              <div class="scenario__persona-desc">Career changer using AI tools to build skills outside formal education</div>
+            </div>
+            <p>For non-traditional learners, ALPR provides verified evidence of rigorous self-directed study that formal transcripts can't capture.</p>
+            <ol class="scenario__steps">
+              <li>Documents 12 months of self-directed machine learning study with AI tutors</li>
+              <li>Shows growing sophistication in prompt engineering and output verification</li>
+              <li>Highlights episodes of productive struggle with gradient descent concepts</li>
+              <li>Presents longitudinal growth data as evidence of readiness for graduate study</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="text-align:center; margin-bottom: 1.5rem; color: var(--color-text);">Key Benefits for Students</h4>
+      <div class="usecase__benefits">
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128273;</div>
+          <h5>Full Ownership</h5>
+          <p>You control what to share, with whom, and for how long. Revoke access anytime.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128161;</div>
+          <h5>Beyond the GPA</h5>
+          <p>Showcase thinking process, persistence, and growth that grades don't capture.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128736;</div>
+          <h5>Portable Across Platforms</h5>
+          <p>One record, many sources. Aggregate learning data from every AI tool you use.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#9989;</div>
+          <h5>Verified & Tamper-Proof</h5>
+          <p>Cryptographic signatures prove your record is authentic and unaltered.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#127919;</div>
+          <h5>Self-Awareness Tool</h5>
+          <p>Understand your own learning patterns and identify areas for growth.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#9878;</div>
+          <h5>Equity Amplifier</h5>
+          <p>Level the playing field for self-taught and non-traditional learners.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FAMILIES ===== -->
+    <div id="uc-families" class="usecases__panel">
+      <div class="usecase__hero">
+        <div class="usecase__intro">
+          <h3>For Families</h3>
+          <p>Understand how your child actually engages with AI&mdash;not as surveillance, but as insight. ALPR helps families support healthy learning habits and make informed decisions about AI tools.</p>
+          <div class="usecase__highlight-box">
+            <h4>The Family Promise</h4>
+            <p>ALPR is never a surveillance tool. It captures aggregated behavioral patterns&mdash;not conversation content. Families see learning habits, not private thoughts. The student always controls what is shared.</p>
+          </div>
+        </div>
+        <div class="usecase__scenarios">
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128106;</span>
+              <h4>Understanding AI Usage at Home</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">The Chen Family &mdash; Parents of a 14-year-old</div>
+              <div class="scenario__persona-desc">Concerned about whether their child uses AI to learn or to avoid learning</div>
+            </div>
+            <p>Instead of guessing or banning AI, the Chens can see aggregated patterns: Is their child accepting every AI answer uncritically? Or are they pushing back, verifying, and building understanding?</p>
+            <ol class="scenario__steps">
+              <li>Review process dimension summary showing intellectual autonomy trends</li>
+              <li>See that productive struggle scores are healthy&mdash;their child persists before seeking help</li>
+              <li>Notice AI literacy is growing: their child now verifies outputs and questions assumptions</li>
+              <li>Have a data-informed conversation about healthy AI habits rather than anxious speculation</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128218;</span>
+              <h4>Supporting College Prep</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">The Johnsons &mdash; Parents navigating admissions</div>
+              <div class="scenario__persona-desc">Want their daughter's application to stand out authentically</div>
+            </div>
+            <p>Families can help students identify their strongest learning episodes, understand which dimensions to develop, and make strategic decisions about which AI tools to invest time in.</p>
+            <ol class="scenario__steps">
+              <li>Review growth trajectories together to identify areas of genuine strength</li>
+              <li>Discuss which learning episodes best tell their daughter's story</li>
+              <li>Understand which platforms are most pedagogically valuable for her goals</li>
+              <li>Support her in writing authentic reflections that connect to her aspirations</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127968;</span>
+              <h4>Homeschool Documentation</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">The Rivera Family &mdash; Homeschooling 3 children</div>
+              <div class="scenario__persona-desc">Need credible, standardized evidence of learning progress</div>
+            </div>
+            <p>Homeschooling families often struggle to provide standardized evidence of learning. ALPR gives them verified, institution-recognized process data that validates their curriculum choices.</p>
+            <ol class="scenario__steps">
+              <li>Use AI tutoring platforms as part of the homeschool curriculum</li>
+              <li>ALPR automatically captures learning process data across all platforms</li>
+              <li>Generate verifiable credentials that satisfy state reporting requirements</li>
+              <li>Present rich process evidence alongside portfolios for college applications</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128170;</span>
+              <h4>Supporting Diverse Learners</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">The Okonkwo Family &mdash; Child with ADHD</div>
+              <div class="scenario__persona-desc">Need to demonstrate learning capacity that traditional assessments miss</div>
+            </div>
+            <p>For neurodiverse learners, ALPR captures the nuance that standardized tests flatten. Productive struggle looks different for every brain&mdash;ALPR shows the genuine engagement, not just the timed output.</p>
+            <ol class="scenario__steps">
+              <li>ALPR's process data shows deep engagement despite non-linear learning patterns</li>
+              <li>Growth trajectories reveal steady progress that timed tests obscure</li>
+              <li>Scaffolding preference data informs effective accommodation strategies</li>
+              <li>Share with evaluators who value process over single-point-in-time assessments</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="text-align:center; margin-bottom: 1.5rem; color: var(--color-text);">Key Benefits for Families</h4>
+      <div class="usecase__benefits">
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128065;</div>
+          <h5>Visibility Without Surveillance</h5>
+          <p>Understand patterns and habits without reading private conversations.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128172;</div>
+          <h5>Informed Conversations</h5>
+          <p>Talk about AI usage with data, not anxiety. Guide healthy habits.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128176;</div>
+          <h5>Investment Insight</h5>
+          <p>See which AI platforms actually drive learning, not just engagement.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128736;</div>
+          <h5>Admissions Advantage</h5>
+          <p>Help your child build a credible, differentiated application portfolio.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#129505;</div>
+          <h5>Neurodiversity Support</h5>
+          <p>Capture learning capacity that traditional metrics undercount.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#127891;</div>
+          <h5>Homeschool Credibility</h5>
+          <p>Provide verified, standardized evidence for non-traditional education.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== EDUCATORS ===== -->
+    <div id="uc-educators" class="usecases__panel">
+      <div class="usecase__hero">
+        <div class="usecase__intro">
+          <h3>For Educators</h3>
+          <p>AI isn't going away. ALPR helps educators understand how students engage with AI tools, design better assignments, and shift focus from policing AI use to cultivating genuine learning.</p>
+          <div class="usecase__highlight-box">
+            <h4>The Educator Promise</h4>
+            <p>ALPR doesn't replace your judgment&mdash;it amplifies it. See which students are building real understanding and which are coasting. Design interventions backed by process data, not guesswork.</p>
+          </div>
+        </div>
+        <div class="usecase__scenarios">
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128203;</span>
+              <h4>Classroom Integration</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Dr. Martinez &mdash; AP Biology Teacher</div>
+              <div class="scenario__persona-desc">Wants to allow AI use but ensure students are actually learning</div>
+            </div>
+            <p>Instead of banning AI or ignoring it, Dr. Martinez designs assignments where ALPR process data becomes part of the assessment. Students earn credit for how they engage, not just what they submit.</p>
+            <ol class="scenario__steps">
+              <li>Assigns a research project where students must use AI tools as part of the process</li>
+              <li>Reviews class-level process dimension data to identify who's thinking vs. copying</li>
+              <li>Uses iterative refinement scores to weight the process portion of the grade</li>
+              <li>Provides targeted feedback to students with low productive-struggle scores</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128202;</span>
+              <h4>Data-Driven Instruction</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Ms. Patel &mdash; Middle School Math Coordinator</div>
+              <div class="scenario__persona-desc">Manages 6 math teachers across grades 6-8</div>
+            </div>
+            <p>Aggregate ALPR data across a grade level reveals which concepts trigger productive struggle (good) versus frustration-driven abandonment (bad), informing curriculum pacing and support strategies.</p>
+            <ol class="scenario__steps">
+              <li>Reviews anonymized, aggregate process dimension data across grade-level cohorts</li>
+              <li>Identifies that fractions-to-algebra transfer shows unusually low knowledge-transfer scores</li>
+              <li>Adjusts curriculum to add bridging activities at the identified transition point</li>
+              <li>Monitors ALPR data over the next quarter to measure intervention effectiveness</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#9997;</span>
+              <h4>Writing Instruction</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Prof. Williams &mdash; College Writing Instructor</div>
+              <div class="scenario__persona-desc">Teaching composition in the age of AI writing assistants</div>
+            </div>
+            <p>Rather than playing "detect the AI," Prof. Williams uses ALPR to assess writing process. Did the student brainstorm, draft, get AI feedback, revise substantively? Or did they prompt once and submit?</p>
+            <ol class="scenario__steps">
+              <li>Requires students to submit ALPR process data alongside final essays</li>
+              <li>Reviews iterative refinement data: revision depth, self-initiated changes, structural edits</li>
+              <li>Grades the quality of the revision process, not just the final product</li>
+              <li>Uses data to teach students about effective revision strategies</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127979;</span>
+              <h4>School-Wide AI Policy</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Principal Torres &mdash; K-12 School Leader</div>
+              <div class="scenario__persona-desc">Developing the school's AI usage framework</div>
+            </div>
+            <p>Instead of blanket bans or unrestricted access, ALPR gives school leaders data to craft nuanced AI policies grounded in evidence of what actually supports learning.</p>
+            <ol class="scenario__steps">
+              <li>Pilots ALPR integration with two grade levels using approved AI platforms</li>
+              <li>Collects anonymized aggregate data on how AI use correlates with learning dimensions</li>
+              <li>Builds an evidence-based AI policy distinguishing productive from unproductive AI use</li>
+              <li>Reports to parents and board with transparent process data backing the policy</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="text-align:center; margin-bottom: 1.5rem; color: var(--color-text);">Key Benefits for Educators</h4>
+      <div class="usecase__benefits">
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128269;</div>
+          <h5>Process Visibility</h5>
+          <p>See how students engage with AI, not just what they submit.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128200;</div>
+          <h5>Data-Driven Decisions</h5>
+          <p>Inform curriculum and intervention with real learning process data.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128221;</div>
+          <h5>Process-Based Assessment</h5>
+          <p>Grade the journey, not just the destination. Reward genuine learning.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#9203;</div>
+          <h5>End the Detection Arms Race</h5>
+          <p>Stop playing "spot the AI." Focus on learning quality instead.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128101;</div>
+          <h5>Differentiated Support</h5>
+          <p>Identify which students need scaffolding and which are ready for challenge.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128202;</div>
+          <h5>Evidence-Based Policy</h5>
+          <p>Build AI usage policies on data, not fear or speculation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ADMISSIONS ===== -->
+    <div id="uc-admissions" class="usecases__panel">
+      <div class="usecase__hero">
+        <div class="usecase__intro">
+          <h3>For Admissions Officers</h3>
+          <p>Evaluate applicants on how they think, not just what they produce. ALPR provides scannable, verified process evidence designed for high-volume review workflows.</p>
+          <div class="usecase__highlight-box">
+            <h4>The Evaluator Promise</h4>
+            <p>Scannable in under 5 minutes per applicant. A radar chart at a glance, episode drill-downs for depth, growth trajectories for trend, and cryptographic verification for trust. No more guessing who wrote what.</p>
+          </div>
+        </div>
+        <div class="usecase__scenarios">
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127979;</span>
+              <h4>Undergraduate Admissions</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Sarah &mdash; Senior Admissions Reader, Liberal Arts College</div>
+              <div class="scenario__persona-desc">Reviews 2,000+ applications per cycle</div>
+            </div>
+            <p>Sarah reads two applications with identical GPAs. One ALPR shows a student who challenges AI outputs and iterates deeply. The other shows surface-level engagement. The difference is now visible and verifiable.</p>
+            <ol class="scenario__steps">
+              <li>Opens the ALPR dashboard: scans the 6-axis radar chart for a quick profile</li>
+              <li>Notices strong intellectual autonomy and productive struggle&mdash;flags for closer read</li>
+              <li>Clicks into a "breakthrough moment" episode: student's own reflection + verified data</li>
+              <li>Checks the growth trajectory: steady, consistent improvement over 18 months</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128300;</span>
+              <h4>Graduate Research Programs</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Dr. Kim &mdash; Graduate Admissions Committee Chair</div>
+              <div class="scenario__persona-desc">Selecting PhD candidates for a computational biology lab</div>
+            </div>
+            <p>Research readiness requires specific thinking habits: iterative refinement, knowledge transfer across domains, and the ability to critique AI-generated hypotheses. ALPR makes these habits visible.</p>
+            <ol class="scenario__steps">
+              <li>Filters candidates by knowledge transfer and iterative refinement scores</li>
+              <li>Reviews research deep-dive episodes showing how candidates use AI for literature review</li>
+              <li>Checks AI literacy dimension: do candidates verify AI outputs against primary sources?</li>
+              <li>Uses ALPR data alongside traditional materials for a holistic evaluation</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127942;</span>
+              <h4>Scholarship Selection</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">The Merit Foundation &mdash; National scholarship program</div>
+              <div class="scenario__persona-desc">Awarding 500 scholarships from 50,000 applicants</div>
+            </div>
+            <p>At scale, ALPR enables efficient first-pass screening based on verified process metrics, while preserving the human review for final selection with rich drill-down data.</p>
+            <ol class="scenario__steps">
+              <li>Use aggregate ALPR scores for initial screening of 50,000 applicants</li>
+              <li>Shortlist candidates with standout growth trajectories and productive struggle</li>
+              <li>Reviewers examine curated episodes and student reflections for the final 2,000</li>
+              <li>Verify credential authenticity programmatically&mdash;no manual integrity checks needed</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127760;</span>
+              <h4>International Student Evaluation</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Admissions team at a top-50 global university</div>
+              <div class="scenario__persona-desc">Evaluating candidates across 100+ educational systems</div>
+            </div>
+            <p>ALPR provides a common, standardized process-evidence layer that works across grading systems, languages, and educational traditions. Compare thinking habits, not incompatible transcripts.</p>
+            <ol class="scenario__steps">
+              <li>Receive ALPR credentials alongside transcripts from varied international systems</li>
+              <li>Use standardized process dimensions to compare candidates on equal footing</li>
+              <li>Review platform-diversity data: strong candidates often use multiple AI tools effectively</li>
+              <li>Leverage anonymous cohort percentiles for fair cross-system calibration</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="text-align:center; margin-bottom: 1.5rem; color: var(--color-text);">Key Benefits for Admissions</h4>
+      <div class="usecase__benefits">
+        <div class="benefit__item">
+          <div class="benefit__icon">&#9201;</div>
+          <h5>5-Minute Review</h5>
+          <p>Scannable at-a-glance view with optional drill-down for depth.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128274;</div>
+          <h5>Verified Authenticity</h5>
+          <p>Cryptographic proofs eliminate manual integrity checks.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128200;</div>
+          <h5>Standardized Comparison</h5>
+          <p>Compare process across grading systems, schools, and countries.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128269;</div>
+          <h5>Anti-Gaming Signals</h5>
+          <p>Behavioral patterns are hard to fake. Timing, revision depth, and consistency checks.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#129309;</div>
+          <h5>Holistic Evaluation</h5>
+          <p>See the whole learner: persistence, creativity, independence, and growth.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128640;</div>
+          <h5>Scalable</h5>
+          <p>Machine-readable credentials support efficient screening at any volume.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== AI PLATFORMS ===== -->
+    <div id="uc-platforms" class="usecases__panel">
+      <div class="usecase__hero">
+        <div class="usecase__intro">
+          <h3>For AI Platforms</h3>
+          <p>Differentiate your platform by proving pedagogical value. ALPR's MCP connector specification lets your platform contribute verified process data to a cross-platform learner record.</p>
+          <div class="usecase__highlight-box">
+            <h4>The Platform Opportunity</h4>
+            <p>Platforms that adopt ALPR signal commitment to learning outcomes over engagement metrics. Early adopters shape the standard and gain privileged positioning in the emerging credential ecosystem.</p>
+          </div>
+        </div>
+        <div class="usecase__scenarios">
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#129302;</span>
+              <h4>AI Tutoring Platforms</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Khan Academy, Duolingo, and similar</div>
+              <div class="scenario__persona-desc">Adaptive learning platforms with rich interaction data</div>
+            </div>
+            <p>Tutoring platforms already capture scaffolding progression, mastery curves, and hint usage. ALPR normalizes this data into a portable format that proves platform effectiveness to parents and institutions.</p>
+            <ol class="scenario__steps">
+              <li>Implement MCP connector mapping existing data to ALPR xAPI verbs</li>
+              <li>Surface ALPR process dimensions in the learner dashboard</li>
+              <li>Enable one-click credential export for admissions applications</li>
+              <li>Use aggregate ALPR data to demonstrate platform learning outcomes</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128172;</span>
+              <h4>General LLMs</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">ChatGPT, Claude, Gemini, and similar</div>
+              <div class="scenario__persona-desc">Conversational AI used widely for learning</div>
+            </div>
+            <p>LLMs are already used for learning but can't prove it. ALPR captures prompt refinement, challenge frequency, and synthesis patterns&mdash;turning informal learning into credentialed evidence.</p>
+            <ol class="scenario__steps">
+              <li>Build an ALPR MCP server that analyzes conversation patterns (not content)</li>
+              <li>Detect and tag learning-relevant interactions: challenge, synthesis, reflection</li>
+              <li>Offer users an "ALPR Learning Mode" that opts into process data collection</li>
+              <li>Export verifiable process evidence as a platform-signed credential</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128187;</span>
+              <h4>Code Assistants</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">GitHub Copilot, Cursor, Replit, and similar</div>
+              <div class="scenario__persona-desc">AI-powered coding tools used by students</div>
+            </div>
+            <p>Code assistants can capture uniquely powerful process signals: independence ratio, debugging approach, code review habits, and how students build on AI suggestions vs. accepting them wholesale.</p>
+            <ol class="scenario__steps">
+              <li>Map code-editing interactions to ALPR verbs: iterated, abandoned-ai-output, self-corrected</li>
+              <li>Compute AI literacy dimension from acceptance rate, modification depth, and verification</li>
+              <li>Generate learning episodes from debugging sessions and project milestones</li>
+              <li>Contribute platform-specific signals to the cross-platform ALPR record</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128218;</span>
+              <h4>Research Tools</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Elicit, Consensus, Semantic Scholar, and similar</div>
+              <div class="scenario__persona-desc">AI-powered research and synthesis platforms</div>
+            </div>
+            <p>Research tools capture source evaluation quality, cross-referencing behavior, and synthesis sophistication&mdash;signals that directly map to academic readiness dimensions.</p>
+            <ol class="scenario__steps">
+              <li>Track source evaluation and cross-referencing as xAPI interaction events</li>
+              <li>Compute knowledge transfer dimension from cross-domain research patterns</li>
+              <li>Generate "research deep-dive" learning episodes from extended sessions</li>
+              <li>Sign and export as part of the student's multi-platform ALPR credential</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="text-align:center; margin-bottom: 1.5rem; color: var(--color-text);">Key Benefits for AI Platforms</h4>
+      <div class="usecase__benefits">
+        <div class="benefit__item">
+          <div class="benefit__icon">&#127942;</div>
+          <h5>Market Differentiation</h5>
+          <p>Prove your platform drives real learning, not just engagement.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128279;</div>
+          <h5>Interoperability</h5>
+          <p>Join an open ecosystem rather than building proprietary silos.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128208;</div>
+          <h5>Institutional Sales</h5>
+          <p>ALPR compliance becomes a procurement checkbox for schools.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128272;</div>
+          <h5>Trust Signal</h5>
+          <p>Cryptographic signing signals data integrity to institutions and parents.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128301;</div>
+          <h5>Standard Shaping</h5>
+          <p>Early adopters influence the specification direction and governance.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128101;</div>
+          <h5>User Retention</h5>
+          <p>Students invest in platforms that contribute to their portable learning record.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POLICYMAKERS ===== -->
+    <div id="uc-policymakers" class="usecases__panel">
+      <div class="usecase__hero">
+        <div class="usecase__intro">
+          <h3>For Policymakers &amp; Standards Bodies</h3>
+          <p>The education system needs governance frameworks for AI-assisted learning that protect students, ensure equity, and maintain institutional trust. ALPR provides the data infrastructure to build evidence-based policy.</p>
+          <div class="usecase__highlight-box">
+            <h4>The Policy Promise</h4>
+            <p>ALPR is designed for regulation, not against it. Privacy-first architecture, open specification, alignment to existing standards, and configurable fairness parameters make it a policy-ready framework.</p>
+          </div>
+        </div>
+        <div class="usecase__scenarios">
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127963;</span>
+              <h4>State Education Departments</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">State Board of Education</div>
+              <div class="scenario__persona-desc">Developing statewide AI-in-education guidelines</div>
+            </div>
+            <p>State boards need standardized data on how AI tools affect learning outcomes. ALPR's aggregate, anonymized process data provides the evidence base for regulation that helps rather than hinders.</p>
+            <ol class="scenario__steps">
+              <li>Adopt ALPR as the recommended process-evidence standard for state schools</li>
+              <li>Use anonymized aggregate data to measure AI's impact on learning dimensions statewide</li>
+              <li>Identify equity gaps: which student populations benefit most/least from AI tools</li>
+              <li>Set evidence-based requirements for AI platforms used in public schools</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#128220;</span>
+              <h4>Accreditation Bodies</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Regional and national accreditation organizations</div>
+              <div class="scenario__persona-desc">Updating accreditation standards for the AI era</div>
+            </div>
+            <p>Accreditors need to verify that institutions maintain academic integrity while integrating AI. ALPR provides auditable, standardized evidence of learning quality across institutions.</p>
+            <ol class="scenario__steps">
+              <li>Include ALPR-compatible process assessment in accreditation criteria</li>
+              <li>Review institutional aggregate ALPR data as part of quality assurance</li>
+              <li>Benchmark process dimension scores across accredited institutions</li>
+              <li>Recognize institutions that demonstrate effective AI-enhanced pedagogy</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#127760;</span>
+              <h4>International Standards Organizations</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">1EdTech, IEEE, W3C, and similar</div>
+              <div class="scenario__persona-desc">Maintaining learning data interoperability standards</div>
+            </div>
+            <p>ALPR is built as an extension to existing standards (xAPI, CLR 2.0, Open Badges 3.0), making it a natural candidate for formal standardization.</p>
+            <ol class="scenario__steps">
+              <li>Review ALPR as a CLR 2.0 extension profile for AI-assisted learning</li>
+              <li>Register ALPR xAPI verb profile in the official xAPI profile registry</li>
+              <li>Coordinate with W3C Verifiable Credentials working group on privacy extensions</li>
+              <li>Develop compliance certification for ALPR MCP connector implementations</li>
+            </ol>
+          </div>
+
+          <div class="scenario__card">
+            <div class="scenario__card-header">
+              <span class="scenario__card-icon">&#9878;</span>
+              <h4>Equity & Civil Rights Organizations</h4>
+            </div>
+            <div class="scenario__persona">
+              <div class="scenario__persona-name">Education equity advocacy organizations</div>
+              <div class="scenario__persona-desc">Ensuring AI in education doesn't widen existing gaps</div>
+            </div>
+            <p>ALPR's configurable dimension weights and cultural-bias awareness features make it an ally for equity work. "Productive struggle" shouldn't penalize students from different learning traditions.</p>
+            <ol class="scenario__steps">
+              <li>Audit ALPR dimension definitions and weights for cultural bias</li>
+              <li>Advocate for configurable evaluation parameters that respect diverse learning styles</li>
+              <li>Monitor whether ALPR adoption correlates with more equitable admissions outcomes</li>
+              <li>Contribute to the open specification process to embed equity by design</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="text-align:center; margin-bottom: 1.5rem; color: var(--color-text);">Key Benefits for Policymakers</h4>
+      <div class="usecase__benefits">
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128202;</div>
+          <h5>Evidence-Based Policy</h5>
+          <p>Regulate AI in education with real process data, not assumptions.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128274;</div>
+          <h5>Privacy-First Design</h5>
+          <p>Built for FERPA, GDPR, and student data protection from the ground up.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#127760;</div>
+          <h5>International Compatibility</h5>
+          <p>Aligned to W3C, 1EdTech, and IEEE standards for global interoperability.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#9878;</div>
+          <h5>Equity Auditable</h5>
+          <p>Configurable weights and transparent algorithms support fairness review.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128194;</div>
+          <h5>Open Specification</h5>
+          <p>Open-source, community-governed standard. No vendor lock-in.</p>
+        </div>
+        <div class="benefit__item">
+          <div class="benefit__icon">&#128736;</div>
+          <h5>Audit Trail</h5>
+          <p>Cryptographic verification and provenance tracking support accountability.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== INTERACTIVE DEMO ========== -->
+<section id="demo">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">Interactive Demo</span>
+      <h2>See What Evaluators See</h2>
+      <p>Explore different learner profiles and their process evidence records. Click the profiles below to see how different learning styles appear in the ALPR radar chart.</p>
+    </div>
+
+    <div class="demo__container reveal">
+      <div class="demo__radar-wrapper">
+        <h3>Process Dimensions Profile</h3>
+        <p class="demo__radar-subtitle">6-axis view &mdash; scannable in 30 seconds</p>
+        <canvas id="radarCanvas"></canvas>
+        <div class="demo__radar-controls">
+          <button class="demo__radar-btn active" data-profile="independent">Independent Thinker</button>
+          <button class="demo__radar-btn" data-profile="collaborative">Collaborative Learner</button>
+          <button class="demo__radar-btn" data-profile="explorer">Creative Explorer</button>
+          <button class="demo__radar-btn" data-profile="methodical">Methodical Builder</button>
+        </div>
+      </div>
+
+      <div class="demo__timeline">
+        <h3>Curated Learning Episodes</h3>
+        <p class="demo__timeline-subtitle">Student-selected moments that tell their learning story</p>
+
+        <div class="demo__episode">
+          <div class="demo__episode-date">2025-11-14</div>
+          <div class="demo__episode-title">Breakthrough: Recursion Finally Clicks</div>
+          <span class="demo__episode-type">breakthrough_moment</span>
+          <p>After three failed attempts and a deliberate shift from asking for solutions to asking for analogies, the concept of recursive function calls connected to the Russian nesting dolls metaphor I built myself.</p>
+          <div class="demo__episode-dimensions">
+            <span class="demo__episode-dim">Productive Struggle</span>
+            <span class="demo__episode-dim">Metacognitive Awareness</span>
+            <span class="demo__episode-dim">AI Literacy</span>
+          </div>
+        </div>
+
+        <div class="demo__episode">
+          <div class="demo__episode-date">2025-12-03</div>
+          <div class="demo__episode-title">Debugging: The Off-by-One That Taught Me Testing</div>
+          <span class="demo__episode-type">debugging_journey</span>
+          <p>Spent 45 minutes tracing a subtle array boundary error. Rejected the AI's first fix because it masked the root cause. Wrote my first property-based test to prove the fix was correct.</p>
+          <div class="demo__episode-dimensions">
+            <span class="demo__episode-dim">Intellectual Autonomy</span>
+            <span class="demo__episode-dim">Iterative Refinement</span>
+          </div>
+        </div>
+
+        <div class="demo__episode">
+          <div class="demo__episode-date">2026-01-18</div>
+          <div class="demo__episode-title">Creative Synthesis: Biology Meets Information Theory</div>
+          <span class="demo__episode-type">creative_synthesis</span>
+          <p>Connected Shannon entropy from my CS reading to genetic information density in AP Bio. Used Claude to validate the analogy, then found two flaws in the AI's response through independent research.</p>
+          <div class="demo__episode-dimensions">
+            <span class="demo__episode-dim">Knowledge Transfer</span>
+            <span class="demo__episode-dim">Intellectual Autonomy</span>
+            <span class="demo__episode-dim">AI Literacy</span>
+          </div>
+        </div>
+
+        <div class="demo__episode">
+          <div class="demo__episode-date">2026-02-01</div>
+          <div class="demo__episode-title">Perspective Shift: Rewriting My Thesis Three Times</div>
+          <span class="demo__episode-type">perspective_shift</span>
+          <p>My original thesis on urban planning was too broad. Each revision narrowed focus based on AI-surfaced counterarguments I hadn't considered. The final version was genuinely mine&mdash;shaped by challenge, not by copying.</p>
+          <div class="demo__episode-dimensions">
+            <span class="demo__episode-dim">Iterative Refinement</span>
+            <span class="demo__episode-dim">Metacognitive Awareness</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRIVACY ========== -->
+<section id="privacy">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">Privacy &amp; Trust</span>
+      <h2>Privacy-First by Design</h2>
+      <p>ALPR captures behavioral patterns, not content. Students control what is shared. Conversations are never exposed. The architecture enforces data minimization at every layer.</p>
+    </div>
+
+    <div class="privacy__grid reveal">
+      <div class="privacy__card">
+        <h4>&#128273; Student Control Points</h4>
+        <ul class="privacy__list">
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Session opt-in:</strong> Choose which learning sessions to include in your record</span></li>
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Episode curation:</strong> Select which learning moments to highlight</span></li>
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Selective disclosure:</strong> Share different subsets with different institutions</span></li>
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Expiry &amp; revocation:</strong> Records carry expiry dates; revoke access anytime</span></li>
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Right to be forgotten:</strong> Platform MCPs must support full deletion</span></li>
+        </ul>
+      </div>
+
+      <div class="privacy__card">
+        <h4>&#128274; Anti-Gaming Safeguards</h4>
+        <ul class="privacy__list">
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Timing analysis:</strong> Genuine learning has characteristic pause patterns</span></li>
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Aggregate signing:</strong> Platform-level metrics can't be selectively excluded</span></li>
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Cross-platform checks:</strong> Consistency analysis flags sudden behavioral changes</span></li>
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Rewards effective AI use:</strong> Schema values smart AI usage, not avoidance</span></li>
+          <li><span class="privacy__list-icon">&#10003;</span> <span><strong>Third-party verification:</strong> Independent audits prevent platform metric inflation</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="privacy__contrast reveal">
+      <div class="privacy__do">
+        <h4>&#10003; What ALPR captures</h4>
+        <ul>
+          <li>"Student refined their prompt 3 times before getting a useful response"</li>
+          <li>"Student challenged the AI's answer and provided an alternative reasoning"</li>
+          <li>"Average time in productive struggle zone: 12 minutes per session"</li>
+          <li>"Self-initiated revision rate: 68% of edits were unprompted"</li>
+        </ul>
+      </div>
+      <div class="privacy__dont">
+        <h4>&#10007; What ALPR never captures</h4>
+        <ul>
+          <li>"Student asked about photosynthesis and the AI responded with..."</li>
+          <li>Raw conversation transcripts or chat logs</li>
+          <li>Personal information beyond a pseudonymous learner ID</li>
+          <li>Content of student writing, code, or creative work</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STANDARDS ========== -->
+<section id="standards">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">Standards Alignment</span>
+      <h2>Built on Established Foundations</h2>
+      <p>ALPR extends proven learning data standards rather than reinventing from scratch.</p>
+    </div>
+
+    <div class="standards__grid reveal">
+      <div class="standard__card">
+        <h4>xAPI 1.0.3</h4>
+        <p>Layer 1 interaction events use xAPI Actor-Verb-Object statements with a custom ALPR verb profile.</p>
+      </div>
+      <div class="standard__card">
+        <h4>CLR 2.0</h4>
+        <p>Layer 3 packaging uses Competency &amp; Learning Record as the verifiable credential envelope.</p>
+      </div>
+      <div class="standard__card">
+        <h4>Open Badges 3.0</h4>
+        <p>Individual competency achievements represented as OpenBadgeCredentials within the CLR.</p>
+      </div>
+      <div class="standard__card">
+        <h4>W3C VC 2.0</h4>
+        <p>Underlying trust and verification layer using W3C Verifiable Credentials data model.</p>
+      </div>
+      <div class="standard__card">
+        <h4>CASE Framework</h4>
+        <p>Process dimensions aligned to recognized competency frameworks for institutional compatibility.</p>
+      </div>
+      <div class="standard__card">
+        <h4>IEEE P9274.1.1</h4>
+        <p>Formal standards alignment pathway for the interaction data layer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ROADMAP ========== -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">Roadmap</span>
+      <h2>From Specification to Standard</h2>
+      <p>ALPR is an open specification in active development. Here's the path forward.</p>
+    </div>
+
+    <div class="roadmap__timeline reveal">
+      <div class="roadmap__item">
+        <div class="roadmap__dot"></div>
+        <div class="roadmap__content">
+          <div class="roadmap__date">Phase 1 &mdash; Q2&ndash;Q3 2026</div>
+          <h4>Specification &amp; Pilot</h4>
+          <p>Finalize JSON-LD context and JSON Schema. Build reference MCP connectors for 2&ndash;3 platforms. Pilot with 3&ndash;5 schools for evaluator feedback.</p>
+        </div>
+      </div>
+
+      <div class="roadmap__item">
+        <div class="roadmap__dot"></div>
+        <div class="roadmap__content">
+          <div class="roadmap__date">Phase 2 &mdash; Q4 2026</div>
+          <h4>Evaluator Tooling</h4>
+          <p>Build the evaluator dashboard renderer. Develop cohort benchmarking data. Publish evaluator interpretation guide and training materials.</p>
+        </div>
+      </div>
+
+      <div class="roadmap__item">
+        <div class="roadmap__dot"></div>
+        <div class="roadmap__content">
+          <div class="roadmap__date">Phase 3 &mdash; 2027</div>
+          <h4>Ecosystem Growth</h4>
+          <p>Open specification for community contribution. Launch certification program for MCP connector compliance. Begin integration with Common App.</p>
+        </div>
+      </div>
+
+      <div class="roadmap__item">
+        <div class="roadmap__dot"></div>
+        <div class="roadmap__content">
+          <div class="roadmap__date">Phase 4 &mdash; 2027&ndash;2028</div>
+          <h4>Standards Body Alignment</h4>
+          <p>Submit to 1EdTech as CLR extension. Register xAPI profile. Seek AACRAO endorsement. Formal IEEE standards track.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq__grid reveal">
+
+      <div class="faq__item">
+        <div class="faq__question">
+          <h4>Is ALPR a surveillance tool?</h4>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>No. ALPR is fundamentally student-owned and student-curated. It captures aggregated behavioral patterns (like "revised 3 times" or "challenged the AI's response") rather than conversation content. Students choose which sessions to include, which episodes to highlight, and which institutions to share with. Raw conversations are never exposed. Think of it as a fitness tracker for learning habits, not a wiretap.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__question">
+          <h4>Can students game ALPR to look better?</h4>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>ALPR includes multiple anti-gaming safeguards. Timing analysis detects unnatural interaction patterns. Platform-level aggregate metrics are cryptographically signed and can't be selectively excluded. Cross-platform consistency checks flag sudden behavioral changes. And because ALPR captures behavioral signals over time (not single-point performances), gaming requires sustained, consistent behavioral change&mdash;which, if maintained long enough, is arguably genuine learning.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__question">
+          <h4>What if a student doesn't use AI? Does ALPR penalize them?</h4>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>ALPR is an optional, supplementary credential&mdash;not a requirement. Students who don't use AI tools simply wouldn't have ALPR data, and that absence should not be held against them. For students who do use AI, ALPR rewards effective and critical AI use, not avoidance. The schema explicitly measures AI literacy alongside intellectual autonomy, recognizing that both are valuable.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__question">
+          <h4>Is ALPR culturally biased?</h4>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>This is an active area of concern in the specification. Concepts like "productive struggle" and "intellectual autonomy" may carry cultural assumptions. ALPR addresses this by making dimension weights configurable by evaluators, supporting culturally-informed interpretation guides, and maintaining an open specification process that invites diverse perspectives. The schema explicitly flags this as an open question to be resolved through broad community input.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__question">
+          <h4>How does ALPR handle multiple platforms?</h4>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>Each AI platform implements an MCP (Model Context Protocol) connector that normalizes its data into the ALPR schema. The student's ALPR record aggregates process data from all connected platforms into a single, portable credential. Platform-specific adaptations are defined for AI tutors, general LLMs, code assistants, research tools, and writing assistants. Cross-platform episode linking is an active design challenge being addressed in the specification.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__question">
+          <h4>What data standards does ALPR build on?</h4>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>ALPR extends established learning data standards: xAPI 1.0.3 for interaction events, CLR 2.0 (Comprehensive Learner Record) for credential packaging, Open Badges 3.0 for competency achievements, W3C Verifiable Credentials 2.0 for trust and verification, CASE for competency framework alignment, and IEEE P9274.1.1 for formal standards compliance. It builds on these foundations rather than starting from scratch.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__question">
+          <h4>Is ALPR open source?</h4>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>Yes. ALPR is an open specification. The JSON Schema, documentation, and reference implementations are all publicly available. The project welcomes community contributions, and governance is designed to transition toward a multi-stakeholder model as the ecosystem grows. No single vendor controls the standard.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__question">
+          <h4>How much data does a student need for a meaningful ALPR record?</h4>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>This is an open question in the specification. The minimum viable dataset&mdash;how many interactions or hours constitute a meaningful record&mdash;is being determined through pilot testing. The goal is to balance statistical significance with accessibility, ensuring the bar isn't so high that only privileged students with extensive AI access can build useful records.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta" id="get-involved">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__label">Get Involved</span>
+      <h2>Shape the Future of Learning Credentials</h2>
+      <p>ALPR is in active development and open to contributions from educators, developers, admissions professionals, students, and policymakers.</p>
+    </div>
+
+    <div class="cta__actions reveal">
+      <a href="https://github.com/isaacpattis/alpr" class="btn btn--primary">View on GitHub</a>
+      <a href="https://github.com/isaacpattis/alpr/blob/main/docs/alpr-schema-proposal.md" class="btn btn--secondary">Read the Full Spec</a>
+      <a href="https://github.com/isaacpattis/alpr/issues" class="btn btn--outline">Open an Issue</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer__text">ALPR &mdash; AI Learning Process Record &middot; Open Specification &middot; Draft v0.1 &middot; February 2026</p>
+    <ul class="footer__links">
+      <li><a href="https://github.com/isaacpattis/alpr">GitHub</a></li>
+      <li><a href="https://github.com/isaacpattis/alpr/blob/main/docs/alpr-schema-proposal.md">Specification</a></li>
+      <li><a href="https://github.com/isaacpattis/alpr/blob/main/docs/alpr-process-evidence-record.schema.json">JSON Schema</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
