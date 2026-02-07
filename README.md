@@ -8,7 +8,7 @@ ALPR is a specification for creating verifiable, student-owned records of the *p
 |---|---|
 | **Version** | 0.1 Draft |
 | **Date** | February 2026 |
-| **Author** | Isaac Pattis / OUP AI-ELT Product |
+| **Author** | Isaac Pattis |
 | **Status** | Open specification -- seeking feedback and contributors |
 | **Site** | [ipattis.github.io/alpr](https://ipattis.github.io/alpr) |
 
