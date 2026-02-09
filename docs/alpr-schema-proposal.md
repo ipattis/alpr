@@ -9,11 +9,11 @@
 
 ## 1. Problem Statement
 
-School admissions currently rely on transcripts (grades, test scores) and essays — both of which are **outcome-focused** and increasingly complicated by AI. A student who uses ChatGPT to write their essay and a student who uses it as a thinking partner to develop their own argument produce the same artefact but demonstrate fundamentally different capabilities.
+Educational evaluation currently relies on transcripts (grades, test scores) and essays — both of which are **outcome-focused** and increasingly complicated by AI. A student who uses ChatGPT to write their essay and a student who uses it as a thinking partner to develop their own argument produce the same artefact but demonstrate fundamentally different capabilities.
 
-What admissions evaluators actually need to see is **process**: how a student thinks, struggles, iterates, self-corrects, and grows. AI-assisted learning interactions are, paradoxically, the richest source of this process data we've ever had — every prompt, revision, scaffolded hint, and breakthrough is logged.
+What evaluators actually need to see is **process**: how a student thinks, struggles, iterates, self-corrects, and grows. AI-assisted learning interactions are, paradoxically, the richest source of this process data we've ever had — every prompt, revision, scaffolded hint, and breakthrough is logged.
 
-**The gap:** No standard exists for capturing, verifying, and portably sharing the *process* of AI-assisted learning in a way that's meaningful for admissions review.
+**The gap:** No standard exists for capturing, verifying, and portably sharing the *process* of AI-assisted learning in a way that's meaningful for evaluation.
 
 ---
 
@@ -38,7 +38,7 @@ The schema operates across three layers that map to existing standards:
 │  LAYER 3: VERIFIABLE CREDENTIAL LAYER                   │
 │  (CLR 2.0 / Open Badges 3.0 / W3C VC)                  │
 │                                                         │
-│  Portable, signed, admissions-ready package              │
+│  Portable, signed, evaluation-ready package              │
 │  → "AI Learning Portfolio Credential"                   │
 └──────────────────────┬──────────────────────────────────┘
                        │ aggregates
@@ -133,7 +133,7 @@ Each xAPI statement carries additional context:
 
 ## 5. Layer 2: Process Evidence Records (The Core Schema)
 
-This is the novel contribution. Process Evidence Records are **derived summaries** that capture learning behaviours meaningful to admissions evaluators. They abstract away raw conversation content while preserving pedagogically significant signals.
+This is the novel contribution. Process Evidence Records are **derived summaries** that capture learning behaviours meaningful to evaluators. They abstract away raw conversation content while preserving pedagogically significant signals.
 
 ### 5.1 Top-Level Schema
 
@@ -195,7 +195,7 @@ This is the novel contribution. Process Evidence Records are **derived summaries
 
 #### 5.2.1 Process Dimensions
 
-These are the core metrics that tell evaluators how a student engages with AI. Each dimension maps to skills admissions committees value.
+These are the core metrics that tell evaluators how a student engages with AI. Each dimension maps to skills that evaluators value.
 
 ```json
 {
@@ -477,7 +477,7 @@ A curated vignette that tells a story. The student selects their most meaningful
 
 #### 5.2.3 Growth Trajectory
 
-Longitudinal view of skill development — the most powerful signal for admissions.
+Longitudinal view of skill development — the most powerful signal for evaluators.
 
 ```json
 {
@@ -630,7 +630,7 @@ The ALPR wraps into a **CLR 2.0 ClrCredential** containing:
 
 ---
 
-## 7. What Admissions Evaluators See
+## 7. What Evaluators See
 
 The schema is designed to render into a **scannable dashboard** with drill-down capability:
 

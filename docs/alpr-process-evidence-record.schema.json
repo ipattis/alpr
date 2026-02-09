@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://alpr.schema.org/v0.1/process-evidence-record.schema.json",
   "title": "AI Learning Process Evidence Record",
-  "description": "A portable, verifiable schema for capturing pedagogical process in AI-assisted learning interactions across platforms. Designed for school admissions evaluation.",
+  "description": "A portable, verifiable schema for capturing pedagogical process in AI-assisted learning interactions across platforms. Designed for evaluators across educational contexts.",
   "type": "object",
   "required": ["id", "schema_version", "learner", "metadata", "engagement_summary", "process_dimensions"],
   "properties": {
@@ -200,7 +200,7 @@
 
     "ProcessDimensions": {
       "type": "object",
-      "description": "Core behavioural dimensions derived from AI interaction patterns. Each maps to skills admissions committees value.",
+      "description": "Core behavioural dimensions derived from AI interaction patterns. Each maps to skills that evaluators value.",
       "properties": {
 
         "intellectual_autonomy": {

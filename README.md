@@ -2,7 +2,7 @@
 
 **An open, portable schema for capturing how students learn with AI.**
 
-ALPR is a specification for creating verifiable, student-owned records of the *process* of AI-assisted learning. It gives students, educators, families, and admissions evaluators a trusted window into how learners think, struggle, iterate, and grow -- moving beyond grades, test scores, and essays that can no longer reliably signal capability in the age of AI.
+ALPR is a specification for creating verifiable, student-owned records of the *process* of AI-assisted learning. It gives students, educators, families, and evaluators a trusted window into how learners think, struggle, iterate, and grow -- moving beyond grades, test scores, and essays that can no longer reliably signal capability in the age of AI.
 
 | | |
 |---|---|
@@ -16,7 +16,7 @@ ALPR is a specification for creating verifiable, student-owned records of the *p
 
 ## The Problem
 
-School admissions rely on outcome-focused materials -- grades, transcripts, essays, test scores. AI has broken the assumptions underlying all of them:
+Educational evaluation relies on outcome-focused materials -- grades, transcripts, essays, test scores. AI has broken the assumptions underlying all of them:
 
 - A polished essay no longer proves a student can write.
 - A high test score doesn't reveal whether understanding is deep or shallow.
@@ -34,7 +34,7 @@ ALPR operates across three layers that build on established learning data standa
 
 ```
 Layer 3: Verifiable Credentials (CLR 2.0 / Open Badges 3.0 / W3C VC)
-  Portable, signed, admissions-ready package
+  Portable, signed, evaluation-ready package
                     |
                     | aggregates
                     v
@@ -209,7 +209,7 @@ The specification acknowledges several unresolved design decisions:
 ALPR is an open specification seeking feedback and contributions from:
 
 - **Educators** -- Does this capture what matters about student learning?
-- **Admissions professionals** -- Would this improve your evaluation workflow?
+- **Evaluators** -- Would this improve your evaluation workflow?
 - **Students and families** -- Does the privacy model protect your interests?
 - **AI platform developers** -- Is the MCP connector spec implementable?
 - **Standards body members** -- Does the alignment to xAPI/CLR/VC make sense?
